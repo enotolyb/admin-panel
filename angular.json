@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "./",
               "budgets": [
                 {
                   "type": "initial",
@@ -98,9 +99,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.component.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "admin-panel"
+  "defaultProject": "admin-panel",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
