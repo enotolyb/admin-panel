@@ -16,6 +16,7 @@ module.exports = {
         "prettier",
         'plugin:prettier/recommended'
       ],
+      "plugins": ["import"],
       rules: {
         'linebreak-style': 'off',
         "import/prefer-default-export": "off",
