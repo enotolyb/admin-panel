@@ -1,0 +1,29 @@
+@import '../../styles/colors';
+
+.button {
+  height: 29px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 0;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &_blue {
+    background-color: $blue;
+  }
+
+  &_red {
+    background-color: $red;
+  }
+
+  &_110 {
+    width: 110px;
+  }
+
+  &_95 {
+    width: 95px;
+  }
+}

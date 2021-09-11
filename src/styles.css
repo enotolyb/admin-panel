@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/fonts/helvetica/stylesheet.css';
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Helvetica;
+  font-weight: 400;
+}
