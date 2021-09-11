@@ -1,0 +1,75 @@
+@import '../../styles/colors';
+@import '../../styles/media';
+
+
+.container {
+  background-color: $backgroundAdmin;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 27px;
+      margin-left: 12px;
+      font-weight: 500;
+      color: $darkGray;
+    }
+  }
+
+  .form {
+    background-color: $white;
+    padding: 20px 18px;
+    border-radius: 9px;
+    box-shadow: $shadow;
+
+    &__title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 500;
+      color: $darkGray;
+    }
+
+    &__input {
+      margin-top: 16px;
+
+      &_title {
+        margin-bottom: 10px;
+        font-size: 11px;
+        color: $darkGray;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+
+      &_access {
+        color: $blue;
+        font-size: 11px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@include mobile() {
+  .container {
+    justify-content: flex-start;
+
+    .logo {
+      margin-top: 100px;
+    }
+  }
+}
