@@ -1,6 +1,8 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CustomControl } from '../customControl';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input',
@@ -15,17 +17,24 @@ import { CustomControl } from '../customControl';
     },
   ],
 })
-export class InputComponent extends CustomControl<string> implements OnInit {
+export class InputComponent extends CustomControl<string> implements OnInit, OnDestroy {
   @Input() placeholder = '';
+
+  private destroy = new Subject();
 
   inputControl = new FormControl();
 
   ngOnInit(): void {
-    this.inputControl.valueChanges.subscribe((value) => {
+    this.inputControl.valueChanges.pipe(takeUntil(this.destroy)).subscribe((value) => {
       if (this.onChange) {
         this.onChange(value);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy.next();
+    this.destroy.complete();
   }
 
   clearInput(): void {
